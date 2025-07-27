@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kaito ziii</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Konfigurasi Tailwind CSS untuk Dark Mode
+        // Pastikan konfigurasi ini berada di *atas* link ke CSS kustom Anda
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0A0A0A', // Dark background
+                        secondary: '#1A1A1A', // Darker secondary for cards/elements
+                        accent: '#007AFF', // Blue accent
+                        textPrimary: '#FFFFFF', // Light text for dark mode
+                        textSecondary: '#B0B0B0', // Lighter gray text
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white dark:bg-primary text-gray-900 dark:text-textPrimary font-sans transition-colors duration-300">
+    <div id="background-animation" class="fixed inset-0 z-0 pointer-events-none opacity-50"></div>
+
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-primary/90 shadow-md dark:shadow-none backdrop-blur-md transition-colors duration-300 py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">
+                <a href="#" class="hover:text-accent transition-colors">kaito ziii</a>
+            </div>
+            <ul class="flex space-x-6 items-center">
+                <li><a href="#about" class="text-gray-600 dark:text-textSecondary hover:text-accent transition-colors">Tentang</a></li>
+                <li><a href="#projects" class="text-gray-600 dark:text-textSecondary hover:text-accent transition-colors">Proyek</a></li>
+                <li><a href="#contact" class="text-gray-600 dark:text-textSecondary hover:text-accent transition-colors">Kontak</a></li>
+                <li>
+                    <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-secondary text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50">
+                        <svg id="darkModeIcon" class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="relative z-10">
+        <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="text-center p-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight mb-4 animate-fade-in-up">
+                    Halo, saya <span class="text-accent">Aziz safiqqurrohman</span>
+                </h1>
+                <p class="mt-4 text-xl md:text-2xl text-gray-700 dark:text-textSecondary max-w-2xl mx-auto animate-fade-in-up delay-200">
+                    Seorang Developer yang antusias dalam menciptakan pengalaman web yang menakjubkan.
+                </p>
+                <a href="#projects" class="mt-8 inline-block bg-accent text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up delay-400">
+                    Lihat projects Saya
+                </a>
+            </div>
+        </section>
+
+     
+<section id="projects" class="py-20 bg-white dark:bg-primary transition-colors duration-300">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 animate-fade-in-up">Proyek Saya</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="bg-gray-50 dark:bg-secondary rounded-lg shadow-xl dark:shadow-none overflow-hidden hover:shadow-2xl dark:hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-scale delay-200">
+                <img src="brick breaker.png" alt="Brick Breaker" class="w-full h-60 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Brick Breaker Game</h3>
+                    <p class="text-gray-700 dark:text-textSecondary mb-4">
+                        Game klasik Brick Breaker yang saya buat menggunakan Python dan Pygame, dilengkapi dengan sistem login, register, dan leaderboard.
+                    </p>
+                    <a href="https://github.com/kaitoziii/brick-breaker" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-300">
+                        Lihat Kode
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-secondary rounded-lg shadow-xl dark:shadow-none overflow-hidden hover:shadow-2xl dark:hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-scale delay-400">
+                <img src="bookshelf.jpg" alt="Bookshelf App" class="w-full h-60 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Bookshelf App</h3>
+                    <p class="text-gray-700 dark:text-textSecondary mb-4">Aplikasi web untuk mengelola daftar buku Anda, dengan fitur tambah, hapus, dan tandai sudah dibaca.</p>
+                    <a href="https://github.com/kaitoziii/bookshelf/tree/main" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-300">
+                        Lihat Kode
+                    </a>
+                </div>
+            </div>
+
+            </div>
+    </div>
+</section>
+<section id="certificates" class="py-20 bg-white dark:bg-primary transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 animate-fade-in-up">Sertifikat Saya</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <div class="bg-gray-50 dark:bg-secondary rounded-lg shadow-xl dark:shadow-none overflow-hidden hover:shadow-2xl dark:hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-scale delay-200">
+                    <img src="sertif progweb.jpg" alt="Sertifikat Pemrograman Web" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Sertifikat Fundamental Pemrograman Web</h3>
+                        <p class="text-gray-700 dark:text-textSecondary mb-4">Menyelesaikan kursus intensif yang mencakup dasar-dasar HTML, CSS, dan konsep dasar JavaScript untuk pengembangan web.</p>
+                        <a href="sertif progweb.jpg" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-300">
+                            Lihat Sertifikat
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-50 dark:bg-secondary rounded-lg shadow-xl dark:shadow-none overflow-hidden hover:shadow-2xl dark:hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-scale delay-400">
+                    <img src="sertif  js.jpg" alt="Sertifikat JavaScript Lanjutan" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Sertifikat JavaScript Lanjutan</h3>
+                        <p class="text-gray-700 dark:text-textSecondary mb-4">Berhasil menyelesaikan modul lanjutan JavaScript, termasuk manipulasi DOM, AJAX, dan ES6+ untuk aplikasi web dinamis.</p>
+                        <a href="sertif  js.jpg" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-300">
+                            Lihat Sertifikat
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="about" class="py-20 bg-gray-50 dark:bg-secondary transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 animate-fade-in-up">about me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 flex justify-center animate-fade-in-left delay-200">
+                        <img src="WhatsApp Image 2025-07-27 at 12.43.31 PM.jpeg" alt="Profil Anda" class="rounded-lg shadow-lg w-full md:w-3/4 h-auto object-cover max-w-xs md:max-w-none">
+                    </div>
+                    <div class="md:w-1/2 text-gray-700 dark:text-textSecondary animate-fade-in-right delay-400">
+                        <p class="mb-4 text-lg">
+                            Saya adalah seorang <strong class="text-gray-900 dark:text-white">Pelajar SMK Antartika 2 Sidoarjo</strong> yang bersemangat. Saat ini saya sedang mendalami bidang <strong class="text-gray-900 dark:text-white">Web Development, Engineering, dan Internet of Things (IoT)</strong>.
+                        </p>
+                        <p class="mb-4 text-lg">
+                            Saya sangat antusias dalam belajar dan mengaplikasikan pengetahuan saya untuk menciptakan solusi-solusi inovatif. Setiap tantangan adalah peluang untuk berkembang dan meningkatkan kemampuan saya di dunia teknologi.
+                        </p>
+                        <p class="text-lg">
+                            Di waktu luang, saya suka <strong class="text-gray-900 dark:text-white">mencoba proyek-proyek baru, bermain game, dan terus menjelajahi perkembangan terbaru di bidang webdev dan IoT</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-gray-50 dark:bg-secondary transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 animate-fade-in-up">Hubungi Saya</h2>
+                <div class="max-w-xl mx-auto bg-white dark:bg-primary p-8 rounded-lg shadow-xl dark:shadow-none animate-fade-in-scale delay-200">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 dark:text-textSecondary text-sm font-bold mb-2">Nama</label>
+                            <input type="text" id="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-100 dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-accent" placeholder="Nama Lengkap Anda" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 dark:text-textSecondary text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-100 dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-accent" placeholder="email@contoh.com" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 dark:text-textSecondary text-sm font-bold mb-2">Pesan</label>
+                            <textarea id="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-100 dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-accent" placeholder="Pesan Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 px-4 rounded-full hover:bg-blue-600 transition-colors duration-300 transform hover:scale-105 shadow-md">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section id="chat-ai" class="py-20 bg-white dark:bg-primary transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 animate-fade-in-up">Ngobrol dengan AI</h2>
+                <div class="max-w-2xl mx-auto bg-gray-50 dark:bg-secondary rounded-lg shadow-xl dark:shadow-none p-6 animate-fade-in-scale delay-200">
+                    <div id="chat-messages" class="h-80 overflow-y-auto border border-gray-200 dark:border-gray-700 rounded-lg p-4 mb-4 flex flex-col space-y-3">
+                        <div class="text-center text-gray-600 dark:text-gray-400 italic">Selamat datang! Tanyakan sesuatu pada AI.</div>
+                    </div>
+                    <div class="flex gap-4">
+                        <input
+                            type="text"
+                            id="chat-input"
+                            placeholder="Ketik pesan Anda..."
+                            class="flex-grow shadow appearance-none border rounded-full py-3 px-4 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-100 dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-accent"
+                        >
+                        <button id="send-button" class="bg-accent text-white font-bold py-3 px-6 rounded-full hover:bg-blue-600 transition-colors duration-300 transform hover:scale-105 shadow-md">
+                            Kirim
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 dark:bg-primary text-white py-8 text-center transition-colors duration-300 relative z-10">
+        <div class="container mx-auto px-6">
+            <p>&copy; <span id="currentYear"></span> kaitoziii</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://www.instagram.com/kaito.nero?igsh=MXd2M2Y2cTdvZnZkNg==" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                    <svg fill="currentColor" viewBox="0 0 24 24" class="h-7 w-7"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.772 1.668 4.92 4.92.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.07 4.85-148 3.252-1.668 4.772-4.92 4.92-.058 1.265-.069 1.645-.069 4.849 0 3.204.012 3.584.07 4.85.148 3.252 1.668 4.772 4.92 4.92 1.265.058 1.645.069 4.849.069 3.204 0 3.584-.012 4.85-.07 3.252-.148 4.772-1.668 4.92-4.92.058-1.265.069-1.645.069-4.849 0-3.204-.012-3.584-.07-4.85-.148-3.252-1.668-4.772-4.92-4.92-1.265-.058-1.645-.069-4.849-.069zm0 8.65c-2.716 0-4.908 2.192-4.908 4.908s2.192 4.908 4.908 4.908 4.908-2.192 4.908-4.908c0-2.716-2.192-4.908-4.908-4.908zm0 8.016c-1.722 0-3.116-1.394-3.116-3.116s1.394-3.116 3.116-3.116 3.116 1.394 3.116 3.116c0 1.722-1.394 3.116-3.116 3.116zm7.21-6.126c-.663 0-1.207.544-1.207 1.207 0 .663.544 1.207 1.207 1.207.663 0 1.207-.544 1.207-1.207.001-.663-.543-1.207-1.207-1.207z"></path></svg>
+                </a>
+                <a href="https://github.com/kaitoziii" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                    <svg fill="currentColor" viewBox="0 0 24 24" class="h-7 w-7"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.646-.217.646-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.088 2.91.832.092-.647.35-.903.636-1.102-2.22-.253-4.555-1.113-4.555-4.931 0-1.09.39-1.988 1.029-2.688-.103-.253-.446-1.272.097-2.659 0 0 .84-.27 2.75 1.025.79-.229 1.63-.342 2.47-.346.84.004 1.68.117 2.47.346 1.91-1.295 2.75-1.025 2.75-1.025.546 1.387.202 2.406.097 2.659.63.7 1.029 1.598 1.029 2.688 0 3.826-2.339 4.675-4.566 4.922.359.307.678.915.678 1.846 0 1.334-.012 2.41-.012 2.727 0 .267.147.579.652.482C19.137 20.183 22 16.425 22 12.017 22 6.484 17.523 2 12 2z" clip-rule="evenodd"></path></svg>
+                </a>
+            </div>
+            <p class="mt-4 text-gray-500">Dibuat dengan HTML, Tailwind CSS, dan JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
