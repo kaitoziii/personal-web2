@@ -16,6 +16,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+// ---------------------- Typing + Deleting Effect for Hero Section ----------------------
+const typingElement = document.getElementById('typing-text');
+const typingText = 'Aziz safiqqurrohman  ';
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+    if (!typingElement) return;
+
+    if (isDeleting) {
+        typingElement.textContent = typingText.substring(0, charIndex--);
+    } else {
+        typingElement.textContent = typingText.substring(0, charIndex++);
+    }
+
+    if (!isDeleting && charIndex === typingText.length) {
+        setTimeout(() => {
+            isDeleting = true;
+            typeEffect();
+        }, 1200); // jeda sebelum mulai hapus
+        return;
+    }
+
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+
+typeEffect();
+
+
+
     // Muat preferensi dari local storage
     let isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (localStorage.getItem('darkMode') === null) {
