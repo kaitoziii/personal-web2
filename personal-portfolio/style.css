@@ -93,3 +93,14 @@
     from { transform: translateY(-10px); }
     to { transform: translateY(100vh); }
 }
+
+#typing-text::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
