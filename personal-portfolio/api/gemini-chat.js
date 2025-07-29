@@ -38,4 +38,13 @@ module.exports = async (req, res) => {
       error: error.message
     });
   }
+  console.log("ENV VAR:", process.env.GEMINI_API_KEY); // 👉 TEST LOG
+
+const API_KEY = process.env.GEMINI_API_KEY;
+
+if (!API_KEY) {
+  console.error('❌ GEMINI_API_KEY is NOT SET');
+  throw new Error('Gemini API Key is not set.');
+}
+
 };
