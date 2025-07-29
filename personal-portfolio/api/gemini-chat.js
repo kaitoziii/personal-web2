@@ -1,50 +1,50 @@
-// File: api/gemini-chat.js
+const fetch = require('node-fetch');
 
-const { GoogleGenerativeAI } = require('@google/generative-ai');
-
-// Ambil API Key dari Environment Variables (pastikan kamu set di Vercel)
 const API_KEY = process.env.GEMINI_API_KEY;
-
-if (!API_KEY) {
-  console.error('GEMINI_API_KEY is not set in environment variables.');
-  throw new Error('Server configuration error: Gemini API Key is missing.');
-}
-
-const genAI = new GoogleGenerativeAI(API_KEY);
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  try {
-    const { message } = req.body;
+  const { message } = req.body;
 
-    if (!message || typeof message !== 'string') {
-      return res.status(400).json({ message: 'Missing or invalid "message" in request body.' });
+  if (!message || typeof message !== 'string') {
+    return res.status(400).json({ message: 'Missing message in request body' });
+  }
+
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            role: 'user',
+            parts: [{ text: message }],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.8,
+          maxOutputTokens: 2048,
+        },
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('Gemini API error:', data);
+      return res.status(500).json({ error: 'Failed to generate response from Gemini', detail: data });
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    const result = await model.generateContent(message);
-    const response = await result.response;
-    const text = response.text();
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response';
 
-    return res.status(200).json({ reply: text });
-
-  } catch (error) {
-    console.error('Error from Gemini API:', error);
-    return res.status(500).json({
-      message: 'Failed to get response from Gemini API.',
-      error: error.message
-    });
+    return res.status(200).json({ reply });
+  } catch (err) {
+    console.error('Server error:', err);
+    return res.status(500).json({ error: err.message });
   }
-  console.log("ENV VAR:", process.env.GEMINI_API_KEY); // 👉 TEST LOG
-
-const API_KEY = process.env.GEMINI_API_KEY;
-
-if (!API_KEY) {
-  console.error('❌ GEMINI_API_KEY is NOT SET');
-  throw new Error('Gemini API Key is not set.');
-}
-
 };
